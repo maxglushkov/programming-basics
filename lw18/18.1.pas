@@ -8,7 +8,7 @@ VAR
   WhichScore: 0 .. NumberOfScores;
   Student: 0 .. ClassSize;
   NextScore: Score;
-  Ave, TotalScore, ClassTotal: INTEGER;
+  Average, TotalScore, ClassTotal: INTEGER;
 BEGIN {AverageScore}
   WRITELN('Student averages:');
   ClassTotal := 0;
@@ -27,17 +27,17 @@ BEGIN {AverageScore}
         END;
       READLN;
       TotalScore *= 10;
-      Ave := TotalScore DIV NumberOfScores;
-      IF Ave MOD 10 >= 5
+      Average := TotalScore DIV NumberOfScores;
+      IF Average MOD 10 >= 5
       THEN
-        WRITELN(Ave DIV 10 + 1)
+        WRITELN(Average DIV 10 + 1)
       ELSE
-        WRITELN(Ave DIV 10);
+        WRITELN(Average DIV 10);
       ClassTotal += TotalScore;
       Student += 1
     END;
   WRITELN;
   WRITELN('Class average:');
-  ClassTotal := ClassTotal DIV (ClassSize * NumberOfScores);
-  WRITELN(ClassTotal DIV 10, '.', ClassTotal MOD 10:1)
+  Average := ClassTotal DIV (ClassSize * NumberOfScores);
+  WRITELN(Average DIV 10, '.', Average MOD 10:1)
 END.  {AverageScore}
