@@ -1,8 +1,13 @@
 PROGRAM Stat(INPUT, OUTPUT);
 
+FUNCTION WillOverflow(Add1, Add2: INTEGER): BOOLEAN;
+BEGIN {WillOverflow}
+  WillOverflow := Add1 > MAXINT - Add2;
+END; {WillOverflow}
+
 FUNCTION WillOverflow(Mul1, Mul2, Add: INTEGER): BOOLEAN;
 BEGIN {WillOverflow}
-  WillOverflow := (Mul1 > MAXINT DIV Mul2) OR (INTEGER(Mul1 * Mul2 + Add) < 0);
+  WillOverflow := (Mul1 > MAXINT DIV Mul2) OR (Mul1 * Mul2 > MAXINT - Add);
 END; {WillOverflow}
 
 PROCEDURE ReadDigit(VAR F: TEXT; VAR D: INTEGER);
@@ -14,9 +19,16 @@ BEGIN {ReadDigit}
   THEN
     BEGIN
       READ(F, Ch);
-      IF (Ch >= '0') AND (Ch <= '9')
-      THEN
-        D := INTEGER(Ch) - 48
+      IF Ch = '0' THEN D := 0 ELSE
+      IF Ch = '1' THEN D := 1 ELSE
+      IF Ch = '2' THEN D := 2 ELSE
+      IF Ch = '3' THEN D := 3 ELSE
+      IF Ch = '4' THEN D := 4 ELSE
+      IF Ch = '5' THEN D := 5 ELSE
+      IF Ch = '6' THEN D := 6 ELSE
+      IF Ch = '7' THEN D := 7 ELSE
+      IF Ch = '8' THEN D := 8 ELSE
+      IF Ch = '9' THEN D := 9
     END
 END; {ReadDigit}
 
@@ -67,7 +79,7 @@ BEGIN {Stat}
           IF Number > Max
           THEN
             Max := Number;
-          IF INTEGER(Sum + Number) < 0
+          IF WillOverflow(Sum, Number)
           THEN
             Overflow := TRUE
           ELSE
@@ -96,7 +108,7 @@ BEGIN {Stat}
         WRITE(OUTPUT, 'Среднее арифметическое: ', Sum DIV Count:0);
         IF Sum MOD Count <> 0
         THEN
-          IF WillOverflow(Sum MOD Count, 200, Count) OR (INTEGER(Count * 2) < 0)
+          IF WillOverflow(Sum MOD Count, 200, Count) OR WillOverflow(Count, Count)
           THEN
             BEGIN
               WRITELN(OUTPUT);
