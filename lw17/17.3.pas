@@ -55,6 +55,9 @@ BEGIN {ReadNumber}
     END
 END; {ReadNumber}
 
+CONST
+  {точность дробной части числа, необходимая для округления до сотых долей}
+  DecimalPrecision = 200;
 VAR
   Number, Min, Max, Sum, Count: INTEGER;
   Overflow: BOOLEAN;
@@ -108,14 +111,14 @@ BEGIN {Stat}
         WRITE(OUTPUT, 'Среднее арифметическое: ', Sum DIV Count:0);
         IF Sum MOD Count <> 0
         THEN
-          IF WillOverflow(Sum MOD Count, 200, Count) OR WillOverflow(Count, Count)
+          IF WillOverflow(Sum MOD Count, DecimalPrecision, Count) OR WillOverflow(Count, Count)
           THEN
             BEGIN
               WRITELN(OUTPUT);
               WRITE(OUTPUT, 'Переполнение');
             END
           ELSE
-            WRITE(OUTPUT, ',', (Sum MOD Count * 200 + Count) DIV (Count * 2):0)
+            WRITE(OUTPUT, ',', (Sum MOD Count * DecimalPrecision + Count) DIV (Count * 2):0)
       END;
   WRITELN(OUTPUT)
 END. {Stat}
