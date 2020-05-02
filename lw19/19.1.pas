@@ -4,9 +4,9 @@ CONST
   Last = 100;
 VAR
   Item, Multiple: INTEGER;
-  Sieve: SET OF First..Last;
+  Sieve: SET OF First .. Last;
 BEGIN {Prime}
-  Sieve := [First..Last];
+  Sieve := [First .. Last];
   Item := First;
   WHILE Item <= Last
   DO

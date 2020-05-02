@@ -4,7 +4,7 @@ INTERFACE
   TYPE
     Month = (NoMonth, Jan, Feb, Mar, Apr, May, Jun,
                       Jul, Aug, Sep, Oct, Nov, Dec);
-    DayNum = 1..31;
+    DayNum = 1 .. 31;
     Date = RECORD
              Mo: Month;
              Day: DayNum

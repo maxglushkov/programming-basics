@@ -22,9 +22,9 @@ IMPLEMENTATION
     MatrixSize = Width * Height;
 
   TYPE
-    Row = 0..Height - 1;
-    Column = 1..Width;
-    Index = 1..MatrixSize;
+    Row = 0 .. Height - 1;
+    Column = 1 .. Width;
+    Index = 1 .. MatrixSize;
 
   VAR
     Matrices: ARRAY[CHAR] OF SET OF Index;
