@@ -1,5 +1,7 @@
 PROGRAM AverageScore(INPUT, OUTPUT);
 CONST
+  MinScore = 0;
+  MaxScore = 100;
   NumberOfScores = 4;
   ClassSize = 4;
 VAR
@@ -27,7 +29,7 @@ BEGIN {AverageScore}
       DO
         BEGIN
           READ(NextScore);
-          IF (NextScore < 0) OR (NextScore > 100)
+          IF (NextScore < MinScore) OR (NextScore > MaxScore)
           THEN
             WRITELN('Число ', NextScore:0, ' не лежит в отрезке [0; 100]')
           ELSE
