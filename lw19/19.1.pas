@@ -6,16 +6,17 @@ VAR
   Item, Multiple: INTEGER;
   Sieve: SET OF First .. Last;
 BEGIN {Prime}
+  {Initializing sieve}
   Sieve := [First .. Last];
+  {Excluding composite numbers from sieve}
   Item := First;
-  WHILE Item <= Last
+  WHILE Item * Item <= Last
   DO
     BEGIN
       IF Item IN Sieve
       THEN
         BEGIN
-          WRITELN(Item);
-          Multiple := Item;
+          Multiple := 2 * Item;
           WHILE Multiple <= Last
           DO
             BEGIN
@@ -24,5 +25,11 @@ BEGIN {Prime}
             END
         END;
       Item += 1
-    END
+    END;
+  {Printing sieve}
+  FOR Item := First TO Last
+  DO
+    IF Item IN Sieve
+    THEN
+      WRITELN(Item)
 END. {Prime}
