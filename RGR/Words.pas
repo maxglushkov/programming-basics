@@ -4,13 +4,14 @@ UNIT Words;
 INTERFACE
   TYPE
     Word = ARRAY[INTEGER] OF CHAR;
-  {Создать новое пустое слово Wrd.}
-  PROCEDURE WordNew(VAR Wrd: Word);
+
   {Считать слово с InFile в OutWord.
    Возвращает количество считанных символов.}
   FUNCTION WordRead(VAR InFile: TEXT; VAR OutWord: Word): INTEGER;
+
   {Вывести в OutFile слово из InWord.}
-  PROCEDURE WordWrite(VAR OutFile: TEXT; InWord: Word);
+  PROCEDURE WordWrite(VAR OutFile: TEXT; VAR InWord: Word);
+
   {Сравнить слова Left и Right.
    ВАЖНО! Это функция точного сравнения. Она не учитывает лексикографический порядок символов.
           К примеру, в CP866 'я' < 'ё' и 'Ё' > 'ё'
@@ -18,22 +19,22 @@ INTERFACE
     -1, если Left < Right
      0, если Left = Right
      1, если Left > Right}
-  FUNCTION WordExactCompare(Left, Right: Word): INTEGER;
+  FUNCTION WordExactCompare(VAR Left, Right: Word): INTEGER;
+
+  {Вернуть TRUE, если слово Wrd начинается с Head, FALSE - в противном случае.}
+  FUNCTION WordStartsWith(VAR Wrd, Head: Word): BOOLEAN;
+
   {Сосчитать и вернуть количество символов в Wrd, не включая #0.}
-  FUNCTION WordLength(Wrd: Word): INTEGER;
+  FUNCTION WordLength(VAR Wrd: Word): INTEGER;
+
   {Записать в Reversed слово из Original в обратном порядке.}
-  FUNCTION WordReverse(Original: Word; VAR Reversed: Word): INTEGER;
+  FUNCTION WordReverse(VAR Original, Reversed: Word): INTEGER;
 
 IMPLEMENTATION
   FUNCTION IsLetterCP866(Ch: CHAR): BOOLEAN;
   BEGIN {IsLetterCP866}
     IsLetterCP866 := ((Ch >= 'A') AND (Ch <= 'Z')) OR ((Ch >= 'a') AND (Ch <= 'z')) OR ((Ch >= 'А') AND (Ch <= 'п')) OR ((Ch >= 'р') AND (Ch <= 'ё'))
   END; {IsLetterCP866}
-
-  PROCEDURE WordNew(VAR Wrd: Word);
-  BEGIN {WordNew}
-    Wrd[0] := #0
-  END; {WordNew}
 
   FUNCTION WordRead(VAR InFile: TEXT; VAR OutWord: Word): INTEGER;
   VAR
@@ -57,7 +58,7 @@ IMPLEMENTATION
     OutWord[WordRead] := #0
   END;
 
-  PROCEDURE WordWrite(VAR OutFile: TEXT; InWord: Word);
+  PROCEDURE WordWrite(VAR OutFile: TEXT; VAR InWord: Word);
   VAR
     Index: INTEGER;
   BEGIN
@@ -70,7 +71,7 @@ IMPLEMENTATION
       END
   END;
 
-  FUNCTION WordExactCompare(Left, Right: Word): INTEGER;
+  FUNCTION WordExactCompare(VAR Left, Right: Word): INTEGER;
   VAR
     Index: INTEGER;
     EndOfWord: BOOLEAN;
@@ -92,7 +93,21 @@ IMPLEMENTATION
       END
   END;
 
-  FUNCTION WordLength(Wrd: Word): INTEGER;
+  FUNCTION WordStartsWith(VAR Wrd, Head: Word): BOOLEAN;
+  VAR
+    Index: INTEGER;
+  BEGIN {WordStartsWith}
+    WordStartsWith := TRUE;
+    Index := 0;
+    WHILE (Head[Index] <> #0) AND WordStartsWith
+    DO
+      BEGIN
+        WordStartsWith := Wrd[Index] = Head[Index];
+        Index += 1
+      END
+  END; {WordStartsWith}
+
+  FUNCTION WordLength(VAR Wrd: Word): INTEGER;
   BEGIN {WordLength}
     WordLength := 0;
     WHILE Wrd[WordLength] <> #0
@@ -100,21 +115,20 @@ IMPLEMENTATION
       WordLength += 1
   END; {WordLength}
 
-  FUNCTION WordReverse(Original: Word; VAR Reversed: Word): INTEGER;
+  FUNCTION WordReverse(VAR Original, Reversed: Word): INTEGER;
   VAR
-    SrcIndex, DstIndex: INTEGER;
+    Index: INTEGER;
   BEGIN {WordReverse}
-    SrcIndex := WordLength(Original);
-    DstIndex := 0;
-    WHILE SrcIndex > 0
+    Index := WordLength(Original);
+    WordReverse := 0;
+    WHILE Index > 0
     DO
       BEGIN
-        SrcIndex -= 1;
-        Reversed[DstIndex] := Original[SrcIndex];
-        DstIndex += 1
+        Index -= 1;
+        Reversed[WordReverse] := Original[Index];
+        WordReverse += 1
       END;
-    Reversed[DstIndex] := #0;
-    WordReverse := DstIndex
+    Reversed[WordReverse] := #0
   END; {WordReverse}
 
 BEGIN {Words}

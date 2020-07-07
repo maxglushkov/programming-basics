@@ -11,9 +11,11 @@ INTERFACE
                   Value: INTEGER;
                   Left, Right: BTMWITree
                 END;
+
   {Увеличить на 1 значение элемента с ключом Key в дереве Tree.
    Если в Tree нет элемента с ключом Key, создаётся элемент <Key, 1>.}
-  PROCEDURE BTMWIIncrement(VAR Tree: BTMWITree; Key: Word);
+  PROCEDURE BTMWIIncrement(VAR Tree: BTMWITree; VAR Key: Word);
+
   {Вывести в OutFile дерево Tree в формате:
     <Key1>: <Value1>
     <Key2>: <Value2>
@@ -23,7 +25,7 @@ INTERFACE
   PROCEDURE BTMWIPrintListing(VAR OutFile: TEXT; Tree: BTMWITree);
 
 IMPLEMENTATION
-  PROCEDURE BTMWIIncrement(VAR Tree: BTMWITree; Key: Word);
+  PROCEDURE BTMWIIncrement(VAR Tree: BTMWITree; VAR Key: Word);
   VAR
     Cmp: INTEGER;
   BEGIN {BTMWIIncrement}
