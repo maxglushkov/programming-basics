@@ -33,7 +33,7 @@ else
   exit 1
 fi
 printf "Creating /tmp/WordsCounterResults directory ... "
-if mkdir /tmp/WordsCounterResults >/dev/null 2>&1
+if mkdir -p /tmp/WordsCounterResults >/dev/null 2>&1
 then
   echo "OK"
 else

@@ -3,20 +3,20 @@ Bytes: 1500159
 Words: ~126297
 WordsCounter errors and resource usage:
 	Command being timed: "./WordsCounter"
-	User time (seconds): 63.10
-	System time (seconds): 0.84
+	User time (seconds): 8.90
+	System time (seconds): 0.64
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:03.94
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.55
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2175340
+	Maximum resident set size (kbytes): 2172972
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 543827
+	Minor (reclaiming a frame) page faults: 543235
 	Voluntary context switches: 1
-	Involuntary context switches: 205
+	Involuntary context switches: 21
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0
@@ -39,10 +39,10 @@ WordsCounter errors and resource usage:
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1544
+	Maximum resident set size (kbytes): 1096
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 379
+	Minor (reclaiming a frame) page faults: 266
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0
@@ -55,22 +55,22 @@ WordsCounter errors and resource usage:
 	Exit status: 0
 
 === Source code in working directory ===
-Bytes: 11183
-Words: ~1013
+Bytes: 11471
+Words: ~1048
 WordsCounter errors and resource usage:
 	Command being timed: "./WordsCounter"
-	User time (seconds): 0.15
+	User time (seconds): 0.00
 	System time (seconds): 0.00
-	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.16
+	Percent of CPU this job got: 92%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.01
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 19040
+	Maximum resident set size (kbytes): 17624
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4752
+	Minor (reclaiming a frame) page faults: 4398
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0
@@ -84,23 +84,23 @@ WordsCounter errors and resource usage:
 
 === Executable itself ===
 Bytes: 186360
-Words: ~2498
+Words: ~2489
 WordsCounter errors and resource usage:
 	Command being timed: "./WordsCounter"
-	User time (seconds): 5.19
-	System time (seconds): 0.10
+	User time (seconds): 0.12
+	System time (seconds): 0.07
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.29
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.20
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 247160
+	Maximum resident set size (kbytes): 244784
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 61781
+	Minor (reclaiming a frame) page faults: 61187
 	Voluntary context switches: 1
-	Involuntary context switches: 14
+	Involuntary context switches: 0
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0
