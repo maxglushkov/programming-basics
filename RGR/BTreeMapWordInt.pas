@@ -12,20 +12,32 @@ INTERFACE
                   Left, Right: BTMWITree
                 END;
 
-  {Увеличить на 1 значение элемента с ключом Key в дереве Tree.
-   Если в Tree нет элемента с ключом Key, создаётся элемент <Key, 1>.}
-  PROCEDURE BTMWIIncrement(VAR Tree: BTMWITree; VAR Key: Word);
+  {Увеличить на 1 значение элемента с ключом Key в дереве Tree и вернуть TRUE.
+   Если в Tree нет элемента с ключом Key, создаётся элемент <Key, 1> и возвращается FALSE.}
+  FUNCTION BTMWIIncrement(VAR Tree: BTMWITree; VAR Key: Word): BOOLEAN;
+
+  {Считать из InFile элемент дерева в формате:
+    <Key><не буква для модуля Words><Value>
+    с переводом строки.
+   Никаких проверок входных данных не производится.}
+  FUNCTION BTMWINodeFromFile(VAR InFile: TEXT): BTMWITree;
+
+  {Вывести в OutFile элемент дерева Node в формате
+    <Key> <Value>
+    с переводом строки.
+   Значение Node удаляется.}
+  PROCEDURE BTMWINodeIntoFile(VAR OutFile: TEXT; VAR Node: BTMWITree);
 
   {Вывести в OutFile дерево Tree в формате:
-    <Key1>: <Value1>
-    <Key2>: <Value2>
+    <Key1> <Value1>
+    <Key2> <Value2>
     ...
-    <KeyN>: <ValueN>
+    <KeyN> <ValueN>
     с завершающим переводом строки.}
   PROCEDURE BTMWIPrintListing(VAR OutFile: TEXT; Tree: BTMWITree);
 
 IMPLEMENTATION
-  PROCEDURE BTMWIIncrement(VAR Tree: BTMWITree; VAR Key: Word);
+  FUNCTION BTMWIIncrement(VAR Tree: BTMWITree; VAR Key: Word): BOOLEAN;
   VAR
     Cmp: INTEGER;
   BEGIN {BTMWIIncrement}
@@ -36,7 +48,8 @@ IMPLEMENTATION
         Tree^.Key := Key;
         Tree^.Value := 1;
         Tree^.Left := NIL;
-        Tree^.Right := NIL
+        Tree^.Right := NIL;
+        BTMWIIncrement := FALSE
       END
     ELSE
       BEGIN
@@ -51,16 +64,32 @@ IMPLEMENTATION
                 WordWrite(STDERR, Key);
                 WRITELN(STDERR)
               END;
-            Tree^.Value += 1
+            Tree^.Value += 1;
+            BTMWIIncrement := TRUE
           END
         ELSE
           IF Cmp < 0
           THEN
-            BTMWIIncrement(Tree^.Left, Key)
+            BTMWIIncrement := BTMWIIncrement(Tree^.Left, Key)
           ELSE
-            BTMWIIncrement(Tree^.Right, Key)
+            BTMWIIncrement := BTMWIIncrement(Tree^.Right, Key)
       END
   END; {BTMWIIncrement}
+
+  FUNCTION BTMWINodeFromFile(VAR InFile: TEXT): BTMWITree;
+  BEGIN {BTMWINodeFromFile}
+    NEW(BTMWINodeFromFile);
+    WordRead(InFile, BTMWINodeFromFile^.Key);
+    READLN(InFile, BTMWINodeFromFile^.Value)
+  END; {BTMWINodeFromFile}
+
+  PROCEDURE BTMWINodeIntoFile(VAR OutFile: TEXT; VAR Node: BTMWITree);
+  BEGIN {BTMWINodeIntoFile}
+    WordWrite(OutFile, Node^.Key);
+    WRITELN(OutFile, ' ', Node^.Value);
+    DISPOSE(Node);
+    Node := NIL
+  END; {BTMWINodeIntoFile}
 
   PROCEDURE BTMWIPrintListing(VAR OutFile: TEXT; Tree: BTMWITree);
   BEGIN {BTMWIPrintListing}
