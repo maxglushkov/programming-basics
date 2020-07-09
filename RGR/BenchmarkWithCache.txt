@@ -3,20 +3,20 @@ Bytes: 1500159
 Words: ~126297
 WordsCounterWithCache errors and resource usage:
 	Command being timed: "./WordsCounterWithCache"
-	User time (seconds): 3.97
-	System time (seconds): 1.17
-	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.15
+	User time (seconds): 1.31
+	System time (seconds): 0.44
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.75
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 653828
+	Maximum resident set size (kbytes): 651788
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 955698
+	Minor (reclaiming a frame) page faults: 375388
 	Voluntary context switches: 1
-	Involuntary context switches: 5
+	Involuntary context switches: 2
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0
@@ -33,16 +33,16 @@ WordsCounterWithCache errors and resource usage:
 	Command being timed: "./WordsCounterWithCache"
 	User time (seconds): 0.00
 	System time (seconds): 0.00
-	Percent of CPU this job got: 100%
+	Percent of CPU this job got: ?%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1084
+	Maximum resident set size (kbytes): 656
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 281
+	Minor (reclaiming a frame) page faults: 165
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0
@@ -55,22 +55,22 @@ WordsCounterWithCache errors and resource usage:
 	Exit status: 0
 
 === Source code in working directory ===
-Bytes: 16763
-Words: ~1467
+Bytes: 16803
+Words: ~1472
 WordsCounterWithCache errors and resource usage:
 	Command being timed: "./WordsCounterWithCache"
-	User time (seconds): 0.01
+	User time (seconds): 0.00
 	System time (seconds): 0.00
-	Percent of CPU this job got: 87%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.01
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 20428
+	Maximum resident set size (kbytes): 10424
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 5149
+	Minor (reclaiming a frame) page faults: 2612
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0
@@ -84,21 +84,21 @@ WordsCounterWithCache errors and resource usage:
 
 === Executable itself ===
 Bytes: 189000
-Words: ~2455
+Words: ~2436
 WordsCounterWithCache errors and resource usage:
 	Command being timed: "./WordsCounterWithCache"
-	User time (seconds): 0.11
-	System time (seconds): 0.08
-	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.19
+	User time (seconds): 0.05
+	System time (seconds): 0.02
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.08
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 245880
+	Maximum resident set size (kbytes): 124736
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 61467
+	Minor (reclaiming a frame) page faults: 31184
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0

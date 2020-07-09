@@ -24,7 +24,7 @@ IMPLEMENTATION
   USES
     BTreeMapWordInt;
   CONST
-    MaxSizeInRam = 10000;
+    MaxSizeInRam = 20000;
   VAR
     Cache, MergeTemp: TEXT;
     SizeInRam: INTEGER;
