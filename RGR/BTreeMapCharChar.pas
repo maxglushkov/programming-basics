@@ -8,10 +8,12 @@ INTERFACE
                   Key, Value: CHAR;
                   Left, Right: BTMCCTree
                 END;
+
   {Вставить значение <Key, Value> в дерево Tree.
    Если в Tree уже есть значение с ключом Key, ничего не происходит.}
   PROCEDURE BTMCCInsert(VAR Tree: BTMCCTree; Key, Value: CHAR);
-  {Получить значение Value, соответствующее ключу Key, из девера Tree.
+
+  {Получить значение Value, соответствующее ключу Key, из дерева Tree.
    Возвращает TRUE, если значение для Key найдено, FALSE в противном случае.}
   FUNCTION BTMCCGetValue(Tree: BTMCCTree; Key: CHAR; VAR Value: CHAR): BOOLEAN;
 
